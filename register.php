@@ -21,5 +21,4 @@ $stmt->bind_param("sssssi",$name,$username,$password,$gender,$email,$phone);
 $stmt->execute();
 echo "Registration Successful....!";
 $stmt->close();
-$conn->close();
 ?>
