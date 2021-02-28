@@ -23,7 +23,7 @@
       else
       {
         // Prepare a select statement
-        $sql = "SELECT id FROM user WHERE USERNAME = ?";
+        $sql = "SELECT id FROM user WHERE USER_NAME = ?";
         if($stmt = $conn->prepare($sql))
         {
             // Bind variables to the prepared statement as parameters
@@ -180,7 +180,7 @@
       if(empty($username_err) && empty($password_err) && empty($confirm_password_err) && empty($email_err) && empty($phone_err) )
       {
         // Prepare an insert statement
-        $sql = "INSERT INTO user (USERNAME, PASSWORD, USER_TYPE) VALUES (?, ?, 'customer')";
+        $sql = "INSERT INTO user (USER_NAME, USER_PASSWORD, USER_TYPE) VALUES (?, ?, 'CUSTOMER')";
 
         if($stmt = $conn->prepare($sql))
         {
@@ -197,7 +197,7 @@
               // Redirect to login page
               //header("location: login.php");
               $customer_insert_err = "";
-              $sql_user_id = "SELECT ID FROM user WHERE USERNAME = ?";
+              $sql_user_id = "SELECT ID FROM user WHERE USER_NAME = ?";
               if($stmt_user_id = $conn->prepare($sql_user_id))
               {
                 $stmt_user_id->bind_param("s",$param_username);
@@ -217,7 +217,7 @@
 
                       //Set parameters
                       $param_first_name = $first_name;
-                      $param_last_name = $lastname;
+                      $param_last_name = $last_name;
                       $param_gender = $gender;
                       $param_phone = $phone;
                       $param_email = $email;
@@ -253,7 +253,7 @@
               }
               if(!empty($customer_insert_err))
               {
-                $sql_delete = "DELETE FROM user WHERE USERNAME = ?";
+                $sql_delete = "DELETE FROM user WHERE USER_NAME = ?";
                 $stmt_delete = $conn->prepare($sql_delete);
                 $stmt_delete->bind_param("s",$username);
                 $stmt_delete->execute();
@@ -269,8 +269,9 @@
             $stmt->close();
         }
 
-      }
-
+      }  
+      //Close connection
+      $conn->close();
   }
 
 
