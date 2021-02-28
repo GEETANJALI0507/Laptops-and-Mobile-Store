@@ -51,7 +51,7 @@
     if(empty($new_password_err) && empty($confirm_password_err))
     {
         // Prepare an update statement
-        $sql = "UPDATE user SET PASSWORD = ? WHERE ID = ?";
+        $sql = "UPDATE user SET USER_PASSWORD = ? WHERE ID = ?";
 
         if($stmt = $conn->prepare($sql))
         {
