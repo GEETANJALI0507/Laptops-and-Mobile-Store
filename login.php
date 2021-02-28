@@ -41,7 +41,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     // Validate credentials
     if(empty($username_err) && empty($password_err)){
         // Prepare a select statement
-        $sql = "SELECT ID, USERNAME, PASSWORD, USER_TYPE FROM user WHERE USERNAME = ?";
+        $sql = "SELECT ID, USER_NAME, USER_PASSWORD, USER_TYPE FROM user WHERE USER_NAME = ?";
 
         if($stmt = $conn->prepare($sql)){
             // Bind variables to the prepared statement as parameters
@@ -101,7 +101,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     }
 
     // Close connection
-    //$mysqli->close();
+    $conn->close();
 }
 ?>
 
