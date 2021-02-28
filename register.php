@@ -370,9 +370,9 @@
           <br><br>
           <div class="form-group">
               <label for="Gender">Gender :</label>
-              <label><input type="radio" id="Gender" name="gender" value="m" required>Male</label>
-              <label><input type="radio" id="Gender" name="gender" value="f" required>Female</label>
-              <label><input type="radio" id="Gender" name="gender" value="o" required>Other</label>
+              <label><input type="radio" id="Gender" name="gender" value="MALE" required>Male</label>
+              <label><input type="radio" id="Gender" name="gender" value="FEMALE" required>Female</label>
+              <label><input type="radio" id="Gender" name="gender" value="OTHER" required>Other</label>
             </div>
           <br><br>
           <div class="form-group">
