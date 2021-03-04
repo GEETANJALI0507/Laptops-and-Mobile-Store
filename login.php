@@ -108,6 +108,69 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
 <!DOCTYPE html>
 <html lang="en">
+     <style>
+    h1{
+  text-align: center;
+  font-size:45px;
+  color:purple;
+  background-color:lightgrey;
+}
+body{
+  text-align: center;
+  font-size:25px;
+  background-color: lightblue;
+  font-family:Helvetica;
+}
+.info{
+  background-color:#e6ffff;
+  text-align: left;
+  margin:20px;
+  padding:20px;
+}
+
+input[type=text], input[type=password] {
+  width: 95%;
+  padding: 12px 20px;
+  margin: 10px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+button {
+  background-color: green;
+  color: white;
+  padding: 14px 20px;
+  margin: 10px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+
+button:hover {
+  opacity: 0.9;
+}
+
+.cancelbn{
+  background-color:red;
+  width: auto;
+  padding: 18px 30px;
+}
+.cancel{
+  text-align:left;
+  padding:10px;
+  margin:15px;
+}
+span.psw{
+ float: right;
+  padding-top: 16px;
+}
+
+img.profile {
+  width: 40%;
+  border-radius: 50%;
+}
+</style>
 <head>
     <meta charset="UTF-8">
     <title>Login</title>
