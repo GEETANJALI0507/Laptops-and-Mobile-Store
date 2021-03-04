@@ -92,8 +92,10 @@
     <title>Reset Password</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
     <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
+        body { font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji; font-size: 14px; }
+        .wrapper { margin-left: 500px; margin-top: 100px; width: 400px; padding: 20px; background-color:#e1e4e8; border-radius: 25px; }
+        h2 { text-align: center; font-size:45px; }
+        #SB, #RB { opacity: 0.9; }
     </style>
 </head>
 <body>
