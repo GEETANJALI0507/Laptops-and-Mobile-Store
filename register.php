@@ -269,12 +269,10 @@
             $stmt->close();
         }
 
-      }  
+      }
       //Close connection
       $conn->close();
   }
-
-
 ?>
 <!DOCTYPE html>
 <html lang="en" >
@@ -282,107 +280,75 @@
       <meta charset="UTF-8">
       <title>Registration</title>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
-    <style type="text/css">
-        body{ font: 14px sans-serif; }
-        .wrapper{ width: 350px; padding: 20px; }
-    </style>
-      <!--<style>
-            h1
-              {
-                text-align: center;
-                font-size:45px;
-                color:purple;
-                background-color:lightgrey;
-              }
-            body
-                {
-                  text-align: center;
-                  font-size:25px;
-                  background-image:url(https://images.freecreatives.com/wp-content/uploads/2015/03/Huge-Backgrounds-63.jpg);
-                  font-family:Helvetica;
-                  color: lightpink;
-                }
-            input[type=text], input[type=password],input[type = email],input[type = tel]
-                {
-                  width: 50%;
-                  padding: 12px 20px;
-                  margin: 8px 0;
-                  display: inline-block;
-                  border: 1px solid #ccc;
-                  box-sizing: border-box;
-                }
-              input[type = submit], input[type= reset]
-                {
-                  background-color: green;
-                  color: white;
-                  padding: 14px 20px;
-                  margin: 10px 0;
-                  border: none;
-                  cursor: pointer;
-                }
-            .wrapper{ width: 350px; padding: 20px; }
-        </style>-->
+      <style type="text/css">
+          body { font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji; font-size: 14px; }
+          .wrapper { margin-left: 500px; margin-top: 100px; width: 400px; padding: 20px; background-color:#e1e4e8; border-radius: 25px; }
+          h2 { text-align: center; font-size:45px; }
+          input[type="text"], input[type="password"], input[type="email"] { width: 300px; }
+          #SB, #RB { opacity: 0.9; }
+      </style>
   </head>
 
 <body>
   <div class="wrapper">
-      <h1>REGISTRATION</h1>
+      <h2>Registration</h2>
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" id="registration">
           <div class="form-group">
-              <label for="first_name">First Name : </label>
+              <label for="first_name">First Name </label>
               <input type="text" id="first_name" placeholder="First Name" name="first_name" required>
             </div>
-          <br><br>
+          <!--<br><br>-->
           <div class="form-group">
-              <label for="last_name">Last Name : </label>
+              <label for="last_name">Last Name </label>
               <input type="text" id="last_name" placeholder="Last Name" name="last_name" required>
             </div>
-          <br><br>
+          <!--<br><br>-->
           <div class="form-group <?php echo (!empty($username_err)) ? 'has-error' : ''; ?>">
-              <label for="username">Username :</label>
+              <label for="username">Username </label>
               <input type="text" id="username" placeholder="Username" name="username" value="<?php echo $username; ?>" required>
               <span class="help-block"><?php echo $username_err; ?></span>
             </div>
-          <br><br>
+          <!--<br><br>-->
           <div class="form-group <?php echo (!empty($password_err)) ? 'has-error' : ''; ?>">
-              <label for="password">Password :</label>
+              <label for="password">Password </label>
               <input type="password" id="password" placeholder="Password" name="password" value="<?php echo $password; ?>" required>
               <span class="help-block"><?php echo $password_err; ?></span>
             </div>
-          <br><br>
+          <!--<br><br>-->
           <div class="form-group <?php echo (!empty($confirm_password_err)) ? 'has-error' : ''; ?>">
-              <label for="confirm_password">Confirm Password :</label>
+              <label for="confirm_password">Confirm Password </label>
               <input type="password" id="cofirm_password" placeholder="Confirm Password" name="confirm_password" value="<?php echo $confirm_password; ?>" required>
               <span class="help-block"><?php echo $confirm_password_err; ?></span>
             </div>
-          <br><br>
+          <!--<br><br>-->
           <div class="form-group">
-              <label for="email" >Email ID :</label>
+              <label for="email" >Email ID </label>
+              <br>
               <input type="email" id="email" placeholder="Email" name="email" value="<?php echo $email; ?>" required>
               <span class="help-block"><?php echo $email_err; ?></span>
             </div>
-          <br><br>
+          <!--<br><br>-->
           <div class="form-group">
-              <label for="phone">Phone Number :</label>
+              <label for="phone">Phone Number </label>
               <input type="text" id="phone" placeholder="Phone Number" name="phone" value="<?php echo $phone; ?>" required>
               <span class="help-block"><?php echo $phone_err; ?></span>
             </div>
-          <br><br>
+          <!--<br><br>-->
           <div class="form-group">
               <label for="Gender">Gender :</label>
               <label><input type="radio" id="Gender" name="gender" value="MALE" required>Male</label>
               <label><input type="radio" id="Gender" name="gender" value="FEMALE" required>Female</label>
               <label><input type="radio" id="Gender" name="gender" value="OTHER" required>Other</label>
             </div>
-          <br><br>
+          <!--<br><br>-->
           <div class="form-group">
-                <input type="submit" class="btn btn-primary" name="submit" value="Submit">
-                <input type="reset" class="btn btn-default" value="Reset">
+                <input id="SB" type="submit" class="btn btn-primary" name="submit" value="Submit">
+                <input id="RB" type="reset" class="btn btn-default" value="Reset">
                 <span class="help-block"><?php echo $customer_insert_err; ?></span>
             </div>
-          <br><br>
+          <!--<br><br>-->
           <p>Already have an account? <a href="login.php">Login here</a>.</p>
         </form>
       </div>
   </body>
-</html>
+</html>"
