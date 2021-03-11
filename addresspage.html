@@ -17,37 +17,7 @@
   <div class="wrapper">
       <h2>Address</h2>
       <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post" id="address">
-          <div class="form-group">
-              <label for="first_name">First Name </label>
-              <input type="text" id="first_name" placeholder="First Name" name="first_name" required>
-            </div>
-          <!--<br><br>-->
-          <div class="form-group">
-              <label for="last_name">Last Name </label>
-              <input type="text" id="last_name" placeholder="Last Name" name="last_name" required>
-            </div>
-          <!--<br><br>-->
           
-          <div class="form-group">
-              <label for="email" >Email ID </label>
-              <br>
-              <input type="email" id="email" placeholder="Email" name="email" value="<?php echo $email; ?>" required>
-              <span class="help-block"><?php echo $email_err; ?></span>
-            </div>
-          <!--<br><br>-->
-          <div class="form-group">
-              <label for="phone">Phone Number </label>
-              <input type="text" id="phone" placeholder="Phone Number" name="phone" value="<?php echo $phone; ?>" required>
-              <span class="help-block"><?php echo $phone_err; ?></span>
-            </div>
-          <!--<br><br>-->
-          <div class="form-group">
-              <label for="Gender">Gender :</label>
-              <label><input type="radio" id="Gender" name="gender" value="MALE" required>Male</label>
-              <label><input type="radio" id="Gender" name="gender" value="FEMALE" required>Female</label>
-              <label><input type="radio" id="Gender" name="gender" value="OTHER" required>Other</label>
-            </div>
-          <!--<br><br>-->
           <div class="form-group">
               <label for="Address_Line1">Address_Line1</label>
               <input type="text" id="Address_Line1" placeholder="Enter your Address" name="Address_Line1" value="<?php echo $Address_Line1; ?>" required>
