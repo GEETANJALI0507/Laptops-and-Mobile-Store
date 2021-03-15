@@ -399,7 +399,17 @@
         $product_display_count+=1;
       }
     ?>
-
+    
+    <!--<form action="<?php //echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+      <div class="card">
+        <h3>Redmi Note 7 Pro - 4GB - 64GB - RED</h3>
+        <img src="https://i.ibb.co/vkDvRtY/1-redmi-red.png" alt="1-redmi-red" border="0" style="width: 100%" />
+        <p class="price">12999</p>
+        <p>Discount : 10</p>
+        <input type="hidden" name="product_view" value=1>
+        <p><input type="submit" name="product_submit" value="View Details"><p>
+      </div>
+    </form>-->
     
   </div>
 
