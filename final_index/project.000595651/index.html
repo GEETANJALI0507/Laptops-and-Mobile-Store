@@ -1,0 +1,190 @@
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="style.css" />
+  <!-- CSS only -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <!-- JavaScript Bundle with Popper -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
+  <script src="index.js"></script>
+</head>
+
+<body>
+  <div class="top-navbar">
+    <!-- insert a logo image -->
+    <a href="https://imgbb.com/"><img src="https://i.ibb.co/j8GNM6K/Electronikart-dbms-project.png" alt="logo" class="logo" /></a>
+    <input type="text" placeholder="Search.." />
+    <!-- search icon -->
+    <span class="input-group-text"> <i class="fa fa-search"></i></span>
+    <div class="menu-bar">
+      <ul>
+        <li>
+          <a href="#"><i class="fa fa-shopping-basket"></i>Cart</a>
+        </li>
+        <li><a href="#">Sign Up</a></li>
+        <li><a href="#">Log In</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="navbar2">
+    <a href="#home">Home</a>
+    <a href="#Laptops">Laptops</a>
+    <a href="#Mobiles">Mobiles</a>
+  </div>
+
+  <!-- sidebar for filters -->
+  <div id="mySidenav" class="sidenav">
+    <div class="price">
+      <h2>Price</h2>
+      <label>Min <input type="numeric" id="min" /><br />Max <input type="numeric" id="max" /></label>
+    </div>
+    <br />
+    <div>
+      <h2>Brand</h2>
+      <div class="mobiles">
+        <label><input type="checkbox" id="Readmi" name="Readmi" value="Readmi" />
+          Redmi</label>
+        <label><input type="checkbox" id="OnePlus" name="OnePlus" value="OnePlus" />
+          OnePlus</label>
+        <label><input type="checkbox" id="Samsung" name="Samsung" value="Samsung" />
+          Samsung</label>
+        <label><input type="checkbox" id="apple" name="Apple" value="Apple" />
+          Apple</label>
+        <label><input type="checkbox" id="Vivo" name="Vivo" value="Vivo" />
+          Vivo</label>
+        <label><input type="checkbox" id="Motorola" name="Motorola" value="Motorola" />
+          Motorola</label>
+      </div>
+      <div calss="laptops">
+        <label><input type="checkbox" id="Lenovo" name="Lenovo" value="Lenovo" />
+          Lenovo</label>
+        <label><input type="checkbox" id="HP" name="HP" value="HP" /> HP</label>
+        <label><input type="checkbox" id="Asus" name="Asus" value="Asus" />
+          Asus</label>
+        <label><input type="checkbox" id="Dell" name="Dell" value="Dell" />
+          Dell</label>
+        <label><input type="checkbox" id="Apple" name="Apple" value="Apple" />
+          Apple</label>
+        <label><input type="checkbox" id="MI" name="MI" value="MI" /> MI</label>
+      </div>
+    </div>
+    <br />
+    <h2>Ram</h2>
+    <div class="ram">
+      <div class="laptops">
+        <label><input type="checkbox" id="4GB" name="4" value="4" /> 4GB</label>
+        <label><input type="checkbox" id="8GB" name="8" value="8" /> 8GB</label>
+        <label><input type="checkbox" id="16GB" name="16" value="16" />
+          16GB</label>
+      </div>
+      <div class="mobile">
+        <label><input type="checkbox" id="3" name="3" value="3" /> 3GB</label>
+        <label><input type="checkbox" id="4" name="4" value="4" /> 4GB</label>
+        <label><input type="checkbox" id="6" name="6" value="6" /> 6GB</label>
+        <label><input type="checkbox" id="8" name="8" value="8" /> 8GB</label>
+        <label><input type="checkbox" id="16" name="16" value="16" /> 16GB</label>
+      </div>
+    </div>
+    <br />
+    <h2>Storage</h2>
+    <div class="storage">
+      <div class="laptops">
+        <label><input type="checkbox" id="32" name="32" value="32" /> 32GB</label>
+        <label><input type="checkbox" id="64" name="64" value="64" /> 64GB</label>
+        <label><input type="checkbox" id="128" name="128" value="128" />
+          128GB</label>
+        <label><input type="checkbox" id="256" name="256" value="256" />
+          256GB</label>
+      </div>
+      <div class="mobile">
+        <label><input type="checkbox" id="256ssd" name="256ssd" value="256" />
+          256GB</label>
+        <label><input type="checkbox" id="512" name="512" value="512" />
+          512GB</label>
+        <label><input type="checkbox" id="1000" name="1000" value="1000" />
+          1TB</label>
+      </div>
+    </div>
+
+    <!-- <h2>OS</h2> -->
+  </div>
+
+  <div class="main">
+    <div class="card">
+      <h2>Redmi Note 7 Pro - 4GB - 64GB - RED</h2>
+      <img src="https://i.ibb.co/vkDvRtY/1-redmi-red.png" alt="1-redmi-red" border="0" style="width: 100%" />
+      <p class="price">12999</p>
+      <p>Discount : 10</p>
+      <p><button>view details</button></p>
+    </div>
+    <div class="card">
+      <h2>Redmi Note 7 Pro - 4GB - 64GB - BLUE</h2>
+      <img src="https://i.ibb.co/ns45Jp7/2-redmi-blue.jpg" alt="2-redmi-blue" border="0" style="width: 100%" />
+      <p class="price">12999</p>
+      <p>Discount : 10</p>
+      <p><button>view details</button></p>
+    </div>
+    <div class="card">
+      <h2>Redmi Note 7 Pro - 4GB - 64GB - GRAY</h2>
+      <img src="https://i.ibb.co/8jTrfnD/3-redmi-gray.png" alt="3-redmi-gray" border="0" style="width: 100%" />
+      <p class="price">12999</p>
+      <p>Discount : 10</p>
+      <p><button>view details</button></p>
+    </div>
+    <div class="card">
+      <h2>
+        OnePlus 7 Pro -Nebula Blue, 8GB RAM, Fluid AMOLED Display, 256GB
+        Storage, 4000mAH Battery
+      </h2>
+      <img src="https://i.ibb.co/pLPhn5S/4-oneplus-blue.jpg" alt="4-oneplus-blue" border="0" style="width: 100%" />
+      <p class="price">52999</p>
+      <p>Discount : 12</p>
+      <p><button>view details</button></p>
+    </div>
+
+    <div class="card">
+      <h2>OnePlus 8T 5G Aquamarine Green, 8GB RAM, 128GB Storage</h2>
+      <img src="https://i.ibb.co/ZGJ2KFp/5-oneplus8t-aquamarine-green.jpg" alt="5-oneplus8t-aquamarine-green" border="0" style="width: 100%" />
+      <p class="price">42999</p>
+      <p>Discount : 2</p>
+      <p><button>view details</button></p>
+    </div>
+
+    <div class="card">
+      <h2>
+        Samsung Galaxy S21 Ultra 5G Phantom Black, 16GB RAM, 128GB Storage
+      </h2>
+      <img src="https://i.ibb.co/RpGQmVS/samsung-s21-black.png" alt="samsung-s21-black" border="0" style="width: 100%" />
+      <p class="price">105999</p>
+      <p>Discount : 1</p>
+      <p><button>view details</button></p>
+    </div>
+
+    <div class="card">
+      <h2>
+        Samsung Galaxy S21 Ultra 5G Phantom silver, 16GB RAM, 128GB Storage
+      </h2>
+      <img src="https://i.ibb.co/4TTs2z4/7-samsung-S21-silver.jpg" alt="6-samsung-S21-silver" border="0" style="width: 100%" />
+      <p class="price">105999</p>
+      <p>Discount : 1</p>
+      <p><button>view details</button></p>
+    </div>
+    <div class="card">
+      <h2>Samsung Galaxy S20 FE Cloud Lavender, 8GB RAM, 128GB Storage</h2>
+      <img src="https://i.ibb.co/sKjNyyB/8-S20-FE-lavender.jpg" alt="8-S20-FE-lavender" border="0" style="width: 100%" />
+      <p class="price">40998</p>
+      <p>Discount : 2</p>
+      <p><button>view details</button></p>
+    </div>
+    <div class="card">
+      <h2>Samsung Galaxy S20 FE Cloud Mint,8GB RAM, 128GB Storage</h2>
+      <img src="https://i.ibb.co/tmfzTWJ/9-S20-FE-mint.jpg" alt="9-S20-FE-mint" border="0" style="width: 100%" />
+      <p class="price">40998</p>
+      <p>Discount : 2</p>
+      <p><button>view details</button></p>
+    </div>
+  </div>
+</body>
+
+</html>
