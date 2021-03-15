@@ -114,7 +114,7 @@
   $price_err = $product_type_err = $manufacturer_err = $RAM_err = $HDD_err = "";
   if($_SERVER["REQUEST_METHOD"] == "POST")
   {
-    print_r($_POST);
+    //print_r($_POST);
     if(isset($_POST["filter_submit"]) && $_POST["filter_submit"] == "Submit")
     {
 
