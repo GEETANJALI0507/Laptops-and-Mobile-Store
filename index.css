@@ -49,6 +49,11 @@ body {
 .search-box {
   display: inline-flex;
 }
+
+/*button[type="submit"]{
+  background: orange;
+}*/
+
 .fa-search {
   color: white;
 }
