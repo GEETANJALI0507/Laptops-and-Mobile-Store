@@ -10,6 +10,19 @@
   }
 
 
+  $sql_for_json = "SELECT MODEL FROM products";
+  $sql_json_result = $conn->query($sql_for_json);
+  while($row = $sql_json_result->fetch_array())
+  {
+    $model_data[] = array("name" => $row["MODEL"]);
+  }
+
+  $file = "data.json";
+  if(file_put_contents($file, json_encode($model_data)))
+  {  }//echo("File created");}
+  else
+    echo("JSON file creation Failed");
+
   //echo "\nSession[id] = ".$_SESSION["id"]."\nSession[username] = ".$_SESSION["username"]."\nSession[user_type] = ".$_SESSION["user_type"];
 
   $price_max = $price_min = NULL;
@@ -193,19 +206,47 @@
       {
         echo "Key=" . $x . ", Value=" . $x_value;
         echo "<br>";
-      }*/
+       }*/
     }
+
+    /*if(isset($product_type_select) && isset($manufacturer_select) && isset($RAM_select) && isset($HDD_select))
+    {
+      foreach($product_type_select as $x => $x_value)
+      {
+        echo "Key=" . $x . ", Value=" . $x_value;
+        echo "<br>";
+      }
+      echo "<br>";
+      foreach($manufacturer_select as $x => $x_value)
+      {
+        echo "Key=" . $x . ", Value=" . $x_value;
+        echo "<br>";
+      }
+      echo "<br>";
+      foreach($RAM_select as $x => $x_value)
+      {
+        echo "Key=" . $x . ", Value=" . $x_value;
+        echo "<br>";
+      }
+      echo "<br>";
+      foreach($HDD_select as $x => $x_value)
+      {
+        echo "Key=" . $x . ", Value=" . $x_value;
+        echo "<br>";
+      }
+    }*/
 
     if(isset($_POST["product_submit"]) && $_POST["product_submit"] == "View Details")
     {
       $_SESSION["product_view_id"] = $_POST["product_view"];
+     //echo $_SESSION["product_view_id"];
       header("location: view.php");
       exit;
     }
 
   }
 
-  $sql_product_extract = "SELECT ID, MODEL, MRP_PRICE, DISCOUNT FROM products";
+  $sql_product_extract = "SELECT ID, MODEL, MRP_PRICE, DISCOUNT, IMAGE FROM products";
   if((isset($_POST["filter_submit"]) && $_POST["filter_submit"] == "Submit") && empty($price_err) && empty($manufacturer_err) && empty($product_type_err) && empty($RAM_err) && empty($HDD_err) )
   {
       $sql_product_extract = $sql_product_extract." WHERE ";
@@ -241,6 +282,14 @@
       $sql_product_extract = $sql_product_extract."0 )";
   }
 
+  else if(isset($_POST["search_submit"]) && $_POST["search_submit"] == "search_it")
+  {
+    $sql_product_extract = $sql_product_extract." WHERE MODEL LIKE '%".trim($_POST["search"])."%'";
+  }
+  else if(isset($_SESSION["search_sent"]) && $_SESSION["search_sent"] === 1)
+  {
+    $sql_product_extract = $sql_product_extract." WHERE MODEL LIKE '%".trim($_SESSION["search_query"])."%'";
+  }
   //echo $sql_product_extract;
 
   $product_display_count = 0;
@@ -251,7 +300,7 @@
     if($stmt_product_extract->execute())
     {
       $stmt_product_extract->store_result();
-      $stmt_product_extract->bind_result( $product_id, $model_name, $MRP, $discount);
+      $stmt_product_extract->bind_result( $product_id, $model_name, $MRP, $discount, $image);
     }
     else
     {
@@ -262,6 +311,13 @@
   {
     $sql_product_extract_err = "Prepare failed.";
   }
+  /*if(isset($_POST["search_submit"]))
+  {
+    echo $_POST["search_submit"];
+    echo "<br>";
+    echo $_POST["sear"];
+    echo "<br>";
+  }*/
 
 ?>
 
@@ -277,31 +333,40 @@
     <!-- JavaScript Bundle with Popper -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/js/bootstrap.min.js"></script>
-    <script src="index.js"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
   </head>
 
   <body>
 
     <!--topnav-->
+    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
     <div class="top-navbar">
-    <!-- insert a logo image -->
-    <a href="https://imgbb.com/"><img src="https://i.ibb.co/j8GNM6K/Electronikart-dbms-project.png" alt="logo" class="logo" /></a>
-    <input type="text" placeholder="Search.." />
-    <!-- search icon -->
-    <span class="input-group-text"> <i class="fa fa-search"></i></span>
-
-    <div class="menu-bar">
-      <ul>
-        <li><a href="#"><i class="fa fa-shopping-basket"></i>Cart</a></li>
-        <li><a href="reset-password.php">Reset Password</a></li>
-        <li><a href="logout.php">Sign Out</a></li>
-      </ul>
+      <!-- insert a logo image -->
+      <a href="https://imgbb.com/"><img src="https://i.ibb.co/j8GNM6K/Electronikart-dbms-project.png" alt="logo" class="logo" /></a>
+      <div>
+      <input type="text" name="search" id="search" placeholder="Search.." required>
+      <!-- search icon -->
+      <!--<span class="input-group-text">--><button class="input-group-text" type="submit" name="search_submit" value="search_it"><i class="fa fa-search"></i></button><!--</span>-->
+      <ul class="list-group" id="result"></ul>
     </div>
-  </div>
+      <div class="menu-bar">
+        <ul>
+          <li><a href="#"><i class="fa fa-shopping-basket"></i>Cart</a></li>
+          <li><a href="reset-password.php">Reset Password</a></li>
+          <li><a href="logout.php">Sign Out</a></li>
+        </ul>
+      </div>
+    </div>
+    </form>
 
     <!--second navbar-->
     <div class="navbar2">
       <a href="index.php">Home</a>
+      <a href="manage_address.php">Manage Addresses</a>
       <!--<a href="#Laptops">Laptops</a>
       <a href="#Mobiles">Mobiles</a>-->
     </div>
@@ -381,7 +446,7 @@
     </form>
 
 
-  <div class="main">
+    <div class="main">
 
     <?php
       while($stmt_product_extract->fetch())
@@ -389,7 +454,7 @@
         echo "<form action=\"".htmlspecialchars($_SERVER['PHP_SELF'])."\" method=\"post\">";
         echo "<div class=\"card\">";
         echo "<h2>".$model_name."</h2>";
-        echo "<img src=\"https://i.ibb.co/vkDvRtY/1-redmi-red.png\" alt=\"1-redmi-red\" border=\"0\" style=\"width: 100%\" />";
+        echo "<img src=\"".$image."\" alt=\"1-redmi-red\" border=\"0\" style=\"width: 100%\" />";
         echo "<p class=\"price\">".$MRP."</p>";
         echo "<p>Discount : ".$discount."%</p>";
         echo "<input type=\"hidden\" name=\"product_view\" value=".$product_id.">";
@@ -398,8 +463,12 @@
         echo "</form>";
         $product_display_count+=1;
       }
+      if($product_display_count == 0)
+      {
+        echo "<div>        No item to display according to inputed filter or search</div>";
+      }
     ?>
-    
+
     <!--<form action="<?php //echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
       <div class="card">
         <h3>Redmi Note 7 Pro - 4GB - 64GB - RED</h3>
@@ -410,10 +479,49 @@
         <p><input type="submit" name="product_submit" value="View Details"><p>
       </div>
     </form>-->
-    
   </div>
 
 
 </body>
 
 </html>
+
+
+
+<script>
+  $(document).ready(function(){
+    $.ajaxSetup({ cache: false });
+    $('#search').keyup(function(){
+      $('#result').html('');
+      $('#state').val('');
+      var searchField = $('#search').val();
+      var expression = new RegExp(searchField, "i");
+      $.getJSON('data.json', function(data) {
+        $.each(data, function(key, value){
+          if (value.name.search(expression) != -1 )
+          {
+            $('#result').append('<li class="list-group-item link-class">  '+value.name+'</li>');
+          }
+        });
+      });
+    });
+
+  $('#result').on('click', 'li', function() {
+  var click_text = $(this).text().split('|');
+  $('#search').val($.trim(click_text[0]));
+  $("#result").html('');
+    });
+  });
+
+  window.onload = function(){
+            var result = document.getElementById('result');
+            document.onclick = function(e){
+               if(e.target.id !== 'result' && e.target.id!== 'search'){
+                  result.style.display = 'none';
+               }
+               else {
+                 result.style.display = 'block';
+               }
+            };
+         };
+</script>
