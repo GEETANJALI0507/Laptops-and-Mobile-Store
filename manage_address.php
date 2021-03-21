@@ -191,9 +191,10 @@
           input[type="text"], input[type="password"], input[type="email"] { width: 300px; }
           #SB, #RB { opacity: 0.9; }
           .radio{top: 75px; left: 400px;}
-          .address1{margin-left: 0; margin-top: -75px;}
-          .address2{margin-left: 250px; margin-top: -120px;}
-          .address3{margin-left: 500px; margin-top: -120px;}
+          .address1{margin-left: 0; margin-top: -70px;}
+          .address2{margin-left: 250px; margin-top: -145.5px;}
+          .address3{margin-left: 500px; margin-top: -146.5px;}
+          .add-button{margin-right: 500px;}
       </style>
   </head>
 
@@ -243,14 +244,17 @@
         <div class='address1'>
         <input type="radio" id="address1" name="address" value="address1">
         <label for="address1">3-876,Teacher's colony,<br>Tirupati,<br>Chitt0or,<br>Andhra Pradesh,<br>517501,<br>Near Apollo Hospital</label><br>
+        <button class="add-button" type="submit">Delete this address</button>
         </div>
         <div class='address2'>
          <input type="radio" id="address2" name="address" value="address2">
          <label for="address2">1-873,Raja Street,<br>Venkatagiri,<br>Nellore,<br>Andhra Pradesh,<br>524132,<br>Near Poleramma Temple</label><br>
+         <button class="add-button" type="submit">Delete this address</button>
         </div>
         <div class='address3'>
          <input type="radio" id="address3" name="address" value="address3">
          <label for="address3">1-71,Pocharam Village,<br>Pocharam,<br>Hyderabad,<br>Telangana,<br>501506,<br>Near Infosys</label>
+         <button class="add-button" type="submit">Delete this address</button>
         </div>
     </div>
 
