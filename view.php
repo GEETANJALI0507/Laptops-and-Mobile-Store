@@ -51,7 +51,7 @@
   $description = explode("|", $description);
 
   $update_stock_err = "";
-
+  $compare_err = "";
   if($_SERVER["REQUEST_METHOD"] == "POST")
   {
     if(isset($_POST["search_submit"]) && $_POST["search_submit"] === "search_it")
@@ -62,11 +62,17 @@
     }
     else if( isset($_POST["compare_submit"]) )
     {
-      if( $_POST["compare_submit"] === "Add to Compare")
+      if( !isset($_SESSION["compare"]) )
+        $_SESSION["compare"] = array();
+      if( $_POST["compare_submit"] === "Add to Compare" &&  count($_SESSION["compare"])<=5 )
       {
         if( !isset($_SESSION["compare"]) )
           $_SESSION["compare"] = array();
         array_push( $_SESSION["compare"], $product_id);
+      }
+      else if($_POST["compare_submit"] === "Add to Compare")
+      {
+        $compare_err = "Compare page is full. Max 5 products allowed.";
       }
       else if( $_POST["compare_submit"] === "Remove from Compare" )
       {
@@ -513,6 +519,7 @@
               {
                 echo "<p>#".$value."</p>";
               }
+              //print_r($_SESSION["compare"]);
             ?>
           </div>
         </div>
@@ -536,7 +543,7 @@
                     {
                       echo "<input type=\"number\" name=\"updated_stock\" value=".$stock.">";
                       echo "<button class=\"add-button\" type=\"submit\" name=\"update_stock_submit\" value=\"Update Stock\" >Update Stock</button>";
-                      echo "<span class=\"help-block\">".$update_stock_err."</span>";
+                      echo "<span class=\"help-block\" style=\"display: block; margin-top: 5px; margin-bottom: 10px; color: red; font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji; font-size: 14px;\">".$update_stock_err."</span>";
                     }
                   ?>
                 </form>
@@ -544,6 +551,7 @@
                 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="POST">
                   <?php
                     echo "<button class=\"add-button\" type=\"submit\" name=\"compare_submit\" value=\"".$compare_submit_value."\" >".$compare_submit_value."</button>";
+                    echo "<span class\"help-block\" style=\"display: block; margin-top: 5px; margin-bottom: 10px; color: red; font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji; font-size: 14px;\">".$compare_err."</span>";
                   ?>
                   <!--<button class="add-button" type="compare_submit" nmae="compare_submit" value=<?php //echo $compare_submit_value; ?> ><?php //echo $compare_submit_value;  ?></button>-->
                 </form>
