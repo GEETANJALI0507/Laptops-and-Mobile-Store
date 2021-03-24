@@ -8,7 +8,7 @@
     header("location: login.php");
     exit;
   }
-
+  $_SESSION["order_finished"] = 0;
 
   $sql_for_json = "SELECT MODEL FROM products";
   $sql_json_result = $conn->query($sql_for_json);
@@ -173,68 +173,9 @@
         $HDD_select = array();
       }
 
-      //if(isset($_POST["price_min"]) && isset($_POST["price_max"]))
-      /*echo "Minimum Price = ".$price_min."   Maximum Price = ".$price_max."<br><br>";
-
-
-      foreach($product_type_select as $x => $x_value)
-      {
-        echo "Key=" . $x . ", Value=" . $x_value;
-        echo "<br>";
-      }
-      echo "<br>";
-      foreach($manufacturer_select as $x => $x_value)
-      {
-        echo "Key=" . $x . ", Value=" . $x_value;
-        echo "<br>";
-      }
-      echo "<br>";
-      foreach($RAM_select as $x => $x_value)
-      {
-        echo "Key=" . $x . ", Value=" . $x_value;
-        echo "<br>";
-      }
-      echo "<br>";
-      foreach($HDD_select as $x => $x_value)
-      {
-        echo "Key=" . $x . ", Value=" . $x_value;
-        echo "<br>";
-      }*/
-
-
-      /*foreach($OS_select as $x => $x_value)
-      {
-        echo "Key=" . $x . ", Value=" . $x_value;
-        echo "<br>";
-       }*/
     }
 
-    /*if(isset($product_type_select) && isset($manufacturer_select) && isset($RAM_select) && isset($HDD_select))
-    {
-      foreach($product_type_select as $x => $x_value)
-      {
-        echo "Key=" . $x . ", Value=" . $x_value;
-        echo "<br>";
-      }
-      echo "<br>";
-      foreach($manufacturer_select as $x => $x_value)
-      {
-        echo "Key=" . $x . ", Value=" . $x_value;
-        echo "<br>";
-      }
-      echo "<br>";
-      foreach($RAM_select as $x => $x_value)
-      {
-        echo "Key=" . $x . ", Value=" . $x_value;
-        echo "<br>";
-      }
-      echo "<br>";
-      foreach($HDD_select as $x => $x_value)
-      {
-        echo "Key=" . $x . ", Value=" . $x_value;
-        echo "<br>";
-      }
-    }*/
+
 
     if(isset($_POST["product_submit"]) && $_POST["product_submit"] == "View Details")
     {
@@ -288,6 +229,7 @@
   }
   else if(isset($_SESSION["search_sent"]) && $_SESSION["search_sent"] === 1)
   {
+    $_SESSION["search_sent"] = 0;
     $sql_product_extract = $sql_product_extract." WHERE MODEL LIKE '%".trim($_SESSION["search_query"])."%'";
   }
   //echo $sql_product_extract;
@@ -343,34 +285,40 @@
   <body>
 
     <!--topnav-->
-    <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
+  <!--<form action="<?php //echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">-->
     <div class="top-navbar">
+      <form action="<?php //echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
       <!-- insert a logo image -->
       <a href="https://imgbb.com/"><img src="https://i.ibb.co/j8GNM6K/Electronikart-dbms-project.png" alt="logo" class="logo" /></a>
-      <div>
+
       <input type="text" name="search" id="search" placeholder="Search.." required>
       <!-- search icon -->
       <!--<span class="input-group-text">--><button class="input-group-text" type="submit" name="search_submit" value="search_it"><i class="fa fa-search"></i></button><!--</span>-->
-      <ul class="list-group" id="result"></ul>
-    </div>
+
+
+
       <div class="menu-bar">
         <ul>
-          <li><a href="#"><i class="fa fa-shopping-basket"></i>Cart</a></li>
+          <li><a href="cart.php"><i class="fa fa-shopping-basket"></i>Cart</a></li>
           <li><a href="reset-password.php">Reset Password</a></li>
           <li><a href="logout.php">Sign Out</a></li>
         </ul>
       </div>
-    </div>
     </form>
+    </div>
+  <!--</form>-->
 
     <!--second navbar-->
     <div class="navbar2">
       <a href="index.php">Home</a>
       <a href="manage_address.php">Manage Addresses</a>
+      <a href="add_admin.php">Add Admin</a>
+      <a href="add_product.php">Add Product</a>
+      <a href="compare.php">Compare</a>
       <!--<a href="#Laptops">Laptops</a>
       <a href="#Mobiles">Mobiles</a>-->
     </div>
-
+    <ul class="list-group" id="result"></ul>
     <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" method="post">
       <!-- sidebar for filters -->
       <div id="mySidenav" class="sidenav">
@@ -480,6 +428,8 @@
       </div>
     </form>-->
   </div>
+
+
 
 
 </body>
