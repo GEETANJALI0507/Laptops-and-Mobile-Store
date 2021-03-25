@@ -1,0 +1,298 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: white;
+  font-family: sans-serif;
+  position: relative;
+}
+
+.top-navbar {
+  height: 47px;
+  top: 0;
+  position: sticky;
+  background: white;
+  border-bottom: 3px solid orange;
+  opacity:1;
+  z-index: 2;
+}
+
+.logo {
+  float: left;
+  height: 47px;
+}
+
+.top-navbar input[type="text"] {
+  margin-top: 9px;
+  margin-left: 25px;
+  border: 1px solid orange;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
+  box-shadow: none;
+  width: 50%;
+  height: 30px;
+  margin-bottom: 9px;
+}
+
+.input-group-text {
+  background: orange;
+  border: 5px solid orange;
+  border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  cursor: pointer;
+}
+#search{
+  padding-left: 20px;
+}
+.search-box {
+  display: inline-flex;
+}
+
+.fa-search {
+  color: white;
+}
+.menu-bar {
+  height: 55px;
+  float: right;
+}
+
+
+.menu-bar a {
+  border-left: 0.5px solid white;
+  padding: 15px 30px;
+  text-align: center;
+  background-color: orange;
+  cursor: pointer;
+  display: inline-flex;
+  font-weight: bold;
+  font-size: 15px;
+  color: white;
+}
+
+.fa-shopping-basket {
+  margin-right: 5px;
+}
+
+#result:focus {outline: 3px solid #ddd;}
+
+.list-group  {
+  top:48px;
+  margin-left: 48px;
+
+  position: absolute;
+  background-color:white;
+  /*border: 1px solid #ddd;*/
+  z-index: 4;
+  color: black;
+  padding: auto ;
+  text-decoration: none;
+  display: none;
+  cursor:pointer;
+
+}
+
+
+.list-group li:hover {
+
+  background-color: rgba(255, 166, 0, 0.322) !important;
+}
+.list-group li{
+  margin-left: 20px;
+}
+
+/*drop down content*/
+.menu-bar a:hover, .dropdown:hover .dropbtn {
+  background-color: rgba(255, 166, 0, 0.356);
+}
+
+.dropdown {
+  float: left;
+  overflow: hidden;
+}
+
+.dropbtn{
+  background-color:orange ;
+}
+.dropdown .dropbtn {
+  font-size: 16px;
+  border: none;
+  outline: none;
+  color: white;
+  padding: 15px 30px;
+  font-size: 15px;
+  font-weight: bold;
+  margin: 0;
+}
+
+
+/* Dropdown content (hidden by default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color:rgba(255, 166, 0, 0.322);
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 3;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+/* Add a grey background color to dropdown links on hover */
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+@media only screen and (max-width: 980px) {
+  .top-navbar {
+    height: 118px;
+    border-bottom: 0;
+  }
+  .search-box {
+    width: 100%;
+  }
+  .menu-bar {
+    width: 100%;
+  }
+
+}
+
+/*--------------------navbar2-----------------*/
+.navbar2 {
+  top:48px;
+  position:sticky;
+  overflow: hidden;
+  background-color: white;
+  opacity:1;
+  font-family: Arial, Helvetica, sans-serif;
+  width:100%;
+  z-index:1;
+
+}
+
+.navbar2 a {
+  float: left;
+  font-size: 16px;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+
+.navbar2 a:hover{
+  background-color: orange;
+}
+.navbar2 button:hover{
+  background-color: orange;
+}
+
+
+
+
+
+
+/*side navigation*/
+.sidenav {
+  padding: 10px;
+  padding-bottom: 100px;
+  display: block;
+  height: 100vh;
+  width: 160px;
+  position: fixed;
+  z-index: 1;
+  top: 104px;
+  left: 0;
+  background-color: rgba(246, 132, 18, 0.1);
+  overflow-y: scroll;
+}
+
+.main {
+  margin-left: 160px; /* Same as the width of the sidenav */
+  padding: 0px 10px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.sidenav label {
+  display: block;
+  padding-top: 5px;
+}
+
+.sidenav > .storage {
+  margin-bottom: 120px;
+}
+
+.price input[type="numeric"] {
+  width: 40px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+  }
+
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+/*product card*/
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  max-width: 300px;
+  margin: auto;
+  text-align: center;
+  font-family: arial;
+  flex: 33.33%;
+  padding: 5px;
+  margin-bottom: 25px;
+}
+
+.card > h3 {
+  height: fit-content;
+  white-space: nowrap;
+  overflow: hidden;
+  width: 100%;
+  text-overflow: ellipsis;
+  /* overflow-x: hidden; */
+}
+
+
+.card input {
+  border: none;
+  outline: 0;
+  padding: 12px;
+  color: white;
+  background-color: #611209;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+.card button:hover {
+  opacity: 0.7;
+}
+
+.card img {
+  height: 300px;
+  width: 200px;
+}
