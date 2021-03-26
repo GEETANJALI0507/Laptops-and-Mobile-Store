@@ -441,6 +441,8 @@
 
       .card-body button{
         font-size: 20px;
+        background-color: grey;
+        color: white;
       }
 
       .form-group{
