@@ -216,7 +216,7 @@
       <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
       <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.css">
       <style type="text/css">
-          body { font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji; font-size: 14px; }
+         
           .wrapper { margin-left: 500px; margin-top: 30px; width: 400px; padding: 20px; background-color:#e1e4e8; border-radius: 25px; }
           h2 { text-align: center; font-size:45px; }
           input[type="text"], input[type="password"], input[type="email"] { width: 300px; }
@@ -275,8 +275,8 @@
   <!--second navbar-->
   <div class="navbar2">
     <a href="index.php">Home</a>
+    <a href = "mobiles.php">Mobiles</a>
     <a href = "laptops.php">Laptops</a>
-     <a href = "mobiles,php">Mobiles</a>
     <a href="compare.php">Compare</a>
   </div>
 
