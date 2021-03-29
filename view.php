@@ -400,12 +400,7 @@
       }
 
 
-      /*.product-img {
-      position: absolute;
-      left: 0;
-      margin-top: -16px;
-      margin-left: 50px;
-      }*/
+  
 
       .product-detail {
         padding: 0 0 20px 20px;
@@ -608,6 +603,8 @@
     <!--second navbar-->
     <div class="navbar2">
       <a href="index.php">Home</a>
+      <a href = "laptops.php">Laptops</a>
+      <a href = "mobiles,php">Mobiles</a>
       <a href="compare.php">Compare</a>
     </div>
 
