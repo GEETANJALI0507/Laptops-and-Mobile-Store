@@ -370,7 +370,7 @@
         }
         if($product_display_count == 0)
         {
-          echo '<div> No item to display according to inputed filter or search</div>';
+          echo '<div style = "color:red;text-align:center;"> No item to display according to inputed filter or search</div>';
         }
       ?>
 
